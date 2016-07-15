@@ -19,7 +19,7 @@ public class SimonSays extends KeyAdapter {
 	JFrame CHARIZARD = new JFrame();
 	HashMap<Integer, String> images = new HashMap<Integer, String>();
 	private int imageIndex;
-	private int tries = 0;
+	
 	int points = 0;
 	private int simonSays = 0;
 	Date timeAtStart;
@@ -30,7 +30,7 @@ public class SimonSays extends KeyAdapter {
 		images.put(new Integer(KeyEvent.VK_DOWN), "ComputerKey2 2.jpg");
 		images.put(new Integer(KeyEvent.VK_LEFT), "ComputerKey3 2.jpg");
 		images.put(new Integer(KeyEvent.VK_RIGHT), "ComputerKey4 4.png");
-
+        images.put(new Integer(KeyEvent.VK_6), "6");
 		JOptionPane.showMessageDialog(null, "Press the matching key when Simon Says or press a different key");
 		showImage();
 	}
@@ -50,18 +50,19 @@ public class SimonSays extends KeyAdapter {
 
 		if (simonSays == 0 && keyCode != imageIndex) {
 			speak("Incorrect!");
+			speak("You got " + points + " " + "out of " + points + 1 +"possible points! good job!");
+		 
 		}
 		if (simonSays == 1 && keyCode == imageIndex) {
 			speak("Incorrect");
+			speak("You got " + points + " " + "out of " + points + 1 +"possible points! good job!");
+		
 		}
 
-		tries++;
-
-		if (tries > 9) {
-			speak("You got " + points + " " + "out of 9 possible points! good job!");
-			JOptionPane.showMessageDialog(null, "Your tries are done. Goodbye!");
-			System.exit(0);
-		}
+		
+		
+			
+	
 
 		CHARIZARD.dispose();
 
